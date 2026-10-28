@@ -1,0 +1,35 @@
+/* 这三行是 Tailwind 的开关：分别注入基础样式、组件样式、工具类样式。 */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 全站基础设置 */
+@layer base {
+  html {
+    /* 中文友好字体栈：Win/Mac 都能显示得舒服 */
+    font-family: "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", "Noto Sans SC", -apple-system, sans-serif;
+  }
+
+  body {
+    /* 奶白主背景（UI 铁律） */
+    background-color: #FDFAF3;
+    color: #4A4458;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* 让整站过渡都非常轻微：hover 只做 2px 上浮 + 淡阴影（铁律：禁闪烁/爆炸） */
+  * {
+    transition-property: background-color, border-color, transform, box-shadow, opacity;
+    transition-duration: 200ms;
+    transition-timing-function: ease-out;
+  }
+}
+
+/* 轻微滚动条美化（可选，不影响功能） */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgba(74, 68, 88, 0.15);
+  border-radius: 9999px;
+}
